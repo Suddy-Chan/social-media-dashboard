@@ -38,7 +38,7 @@ Before running the application, make sure you have:
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/Suddy-Chan/social-media-dashboard.git
 cd social-media-dashboard
 ```
 
@@ -81,24 +81,6 @@ npm start
 ```
 The client will run on `http://localhost:3000`
 
-## Available Scripts
-
-### Server
-
-Reference to server scripts:
-```json:server/package.json
-startLine: 5
-endLine: 8
-```
-
-### Client
-
-Reference to client scripts:
-```json:client/package.json
-startLine: 17
-endLine: 22
-```
-
 ## Project Structure
 
 ```
@@ -115,14 +97,6 @@ endLine: 22
     ├── routes/          # API routes
     └── server.js        # Server entry point
 ```
-
-## API Endpoints
-
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `GET /api/auth/x` - Initialize X (Twitter) authentication
-- `GET /api/auth/x/callback` - X authentication callback
-- `GET /api/dashboard` - Get dashboard data
 
 ## Contributing
 

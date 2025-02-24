@@ -19,17 +19,49 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      <nav className="home-nav">
+        <div className="nav-logo">
+          Social Media Dashboard
+        </div>
+        <div className="nav-auth-buttons">
+          <Link to="/login" className="nav-button login-button">
+            Login
+          </Link>
+          <Link to="/register" className="nav-button register-button">
+            Register
+          </Link>
+        </div>
+      </nav>
+
       <section className="hero-section">
         <h1 className="home-title">Social Media Dashboard</h1>
         <p className="subtitle">Track your social media performance in one place</p>
-        <div className="auth-buttons">
-          <Link to="/register" className="auth-button register-button">
-            Register
-          </Link>
-          <Link to="/login" className="auth-button login-button">
-            Login
-          </Link>
-        </div>
+        
+        <section className="features-section">
+          <h2>Features</h2>
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon">📊</div>
+              <h3>Analytics Dashboard</h3>
+              <p>Comprehensive metrics and insights for your social media performance</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">🔄</div>
+              <h3>Multi-Platform Support</h3>
+              <p>Connect and manage multiple social media accounts in one place</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">📈</div>
+              <h3>Growth Tracking</h3>
+              <p>Monitor your follower growth and engagement rates over time</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">📱</div>
+              <h3>Real-time Updates</h3>
+              <p>Stay up to date with your latest social media metrics</p>
+            </div>
+          </div>
+        </section>
       </section>
 
       <section className="demo-section">

@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import UserMenu from '../UserMenu/UserMenu';
+import '../../styles/Dashboard.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -18,15 +20,11 @@ const Dashboard = () => {
     { month: 'May', value: 70, amount: '7.0K' },
   ];
 
-  const handleLogout = () => {
-    navigate('/');
-  };
-
   return (
     <div className="dashboard">
       <nav className="dashboard-nav">
         <h1>Dashboard</h1>
-        <button onClick={handleLogout} className="logout-button">Logout</button>
+        <UserMenu />
       </nav>
 
       <div className="metrics-grid">

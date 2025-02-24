@@ -32,7 +32,7 @@ const Register = () => {
   };
 
   const handleGoogleRegister = () => {
-    // Google registration logic
+    window.location.href = 'http://localhost:5000/api/auth/google';
   };
 
   return (

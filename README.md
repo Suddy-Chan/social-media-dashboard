@@ -117,10 +117,12 @@ cp .env.example .env
 ```
 
 2. Update the `.env` file with your actual values:
-- `MONGODB_URI`: Your MongoDB connection string
-- `JWT_SECRET`: A secure random string for JWT signing
-- `X_CLIENT_ID`: Your X (Twitter) API client ID
-- `X_CLIENT_SECRET`: Your X (Twitter) API client secret
-- `PORT`: Server port number (default: 5000)
+- `PORT`: Server port (default: 5000)
+- `MONGODB_URI`: MongoDB connection string
+- `JWT_SECRET`: Secret key for JWT token generation
+- `GOOGLE_CLIENT_ID`: Google OAuth client ID
+- `GOOGLE_CLIENT_SECRET`: Google OAuth client secret
+- `X_CLIENT_ID`: X (Twitter) API client ID
+- `X_CLIENT_SECRET`: X (Twitter) API client secret
 
 **Note:** Never commit your actual `.env` file or expose your API keys publicly.

@@ -6,18 +6,19 @@ const auth = require('../middleware/auth');
 const xConfig = require('../config/xConfig');
 
 // Initialize X connection
-router.get('/x', auth, (req, res) => {
+router.get('/x/connect', auth, (req, res) => {
   try {
-    // Store user ID in session or state
-    const state = req.user.id; // Use user ID as state
-
+    console.log('Auth middleware user:', req.user);
+    const state = req.user.id;
     const authUrl = new URL('https://twitter.com/i/oauth2/authorize');
     const params = new URLSearchParams({
       response_type: 'code',
       client_id: xConfig.clientId,
       redirect_uri: xConfig.callbackURL,
       scope: xConfig.scope.join(' '),
-      state: state // Pass user ID as state
+      state: state,
+      code_challenge: 'challenge',
+      code_challenge_method: 'plain'
     });
 
     authUrl.search = params.toString();
@@ -36,23 +37,25 @@ router.get('/x/callback', async (req, res) => {
 
     if (error) {
       console.error('OAuth Error:', error);
-      return res.redirect('http://127.0.0.1:3000/connect?error=' + error);
+      return res.redirect('http://localhost:3000/connect?error=' + error);
     }
 
     if (!code) {
       throw new Error('No authorization code received from X');
     }
 
-    // Exchange code for access token
+    // Exchange code for access token with Basic Auth header
+    const basicAuth = Buffer.from(`${xConfig.clientId}:${xConfig.clientSecret}`).toString('base64');
     const tokenResponse = await axios.post('https://api.twitter.com/2/oauth2/token',
       new URLSearchParams({
         code,
         grant_type: 'authorization_code',
         client_id: xConfig.clientId,
-        client_secret: xConfig.clientSecret,
         redirect_uri: xConfig.callbackURL,
+        code_verifier: 'challenge'
       }), {
         headers: {
+          'Authorization': `Basic ${basicAuth}`,
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       }
@@ -75,10 +78,10 @@ router.get('/x/callback', async (req, res) => {
     });
 
     // Redirect to dashboard with success message
-    res.redirect('http://127.0.0.1:3000/dashboard?success=true');
+    res.redirect('http://localhost:3000/dashboard?success=true');
   } catch (error) {
     console.error('X Callback Error:', error.response?.data || error);
-    res.redirect('http://127.0.0.1:3000/connect?error=x_connection_failed');
+    res.redirect('http://localhost:3000/connect?error=x_connection_failed');
   }
 });
 

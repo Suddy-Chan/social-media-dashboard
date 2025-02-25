@@ -1,11 +1,22 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import UserMenu from '../UserMenu/UserMenu';
 import '../../styles/Dashboard.css';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  
+  const [searchParams] = useSearchParams();
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  useEffect(() => {
+    console.log('Success param:', searchParams.get('success'));
+    if (searchParams.get('success') === 'true') {
+      setShowSuccess(true);
+      // Hide success message after 5 seconds
+      const timer = setTimeout(() => setShowSuccess(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [searchParams]);
+
   const metrics = {
     followers: '10.5K',
     engagement: '4.8',
@@ -17,11 +28,17 @@ const Dashboard = () => {
     { month: 'Feb', value: 80, amount: '8.0K' },
     { month: 'Mar', value: 40, amount: '4.0K' },
     { month: 'Apr', value: 90, amount: '9.0K' },
-    { month: 'May', value: 70, amount: '7.0K' },
+    { month: 'May', value: 70, amount: '7.0K' }
   ];
 
   return (
     <div className="dashboard">
+      {showSuccess && (
+        <div className="success-notification">
+          Successfully connected to X account!
+        </div>
+      )}
+      
       <nav className="dashboard-nav">
         <h1>Dashboard</h1>
         <UserMenu />

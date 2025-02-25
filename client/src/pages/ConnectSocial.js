@@ -11,16 +11,23 @@ const ConnectSocial = () => {
   const handleXConnect = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/auth/x', {
+      console.log('Token being sent:', token);
+      const response = await axios.get('http://localhost:5000/api/auth/x/connect', {
         headers: {
           Authorization: `Bearer ${token}`
         }
       });
       
-      // Redirect to X's OAuth page
-      window.location.href = response.data.authUrl;
+      if (response.data.authUrl) {
+        console.log('Redirecting to:', response.data.authUrl);
+        window.location.href = response.data.authUrl;
+      } else {
+        console.error('Invalid response:', response.data);
+        setError('Invalid response from server');
+      }
     } catch (err) {
-      setError('Failed to connect to X');
+      console.error('X connection error:', err.response?.data || err.message);
+      setError(err.response?.data?.msg || 'Failed to connect to X');
     }
   };
 

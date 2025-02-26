@@ -37,6 +37,10 @@ const Home = () => {
         <h1 className="home-title">Social Media Dashboard</h1>
         <p className="subtitle">Track your social media performance in one place</p>
         
+        <div className="hero-cta">
+          <Link to="/register" className="cta-button">Get Started Free</Link>
+        </div>
+        
         <section className="features-section">
           <h2>Features</h2>
           <div className="features-grid">
@@ -59,6 +63,36 @@ const Home = () => {
               <div className="feature-icon">📱</div>
               <h3>Real-time Updates</h3>
               <p>Stay up to date with your latest social media metrics</p>
+            </div>
+          </div>
+        </section>
+        
+        <section className="supported-platforms">
+          <h2>Supported Platforms</h2>
+          <div className="platforms-showcase">
+            <div className="platform-item">
+              <div className="platform-icon x-icon">𝕏</div>
+              <h3>X (Twitter)</h3>
+              <p>Track followers, engagement, and tweet performance</p>
+            </div>
+            <div className="platform-item">
+              <div className="platform-icon facebook-icon">f</div>
+              <h3>Facebook</h3>
+              <p>Monitor page likes, reach, and post engagement</p>
+            </div>
+            <div className="platform-item coming-soon">
+              <div className="platform-icon instagram-icon">
+                <span className="insta-icon">📷</span>
+              </div>
+              <h3>Instagram</h3>
+              <p>Coming Soon</p>
+              <div className="coming-soon-badge">Coming Soon</div>
+            </div>
+            <div className="platform-item coming-soon">
+              <div className="platform-icon linkedin-icon">in</div>
+              <h3>LinkedIn</h3>
+              <p>Coming Soon</p>
+              <div className="coming-soon-badge">Coming Soon</div>
             </div>
           </div>
         </section>
@@ -114,6 +148,17 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <footer className="home-footer">
+        <div className="footer-content">
+          <p>&copy; 2023 Social Media Dashboard. All rights reserved.</p>
+          <div className="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

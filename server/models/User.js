@@ -10,10 +10,21 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  xAccessToken: String,
-  xRefreshToken: String,
-  xUserId: String,
-  xUsername: String,
+  username: {
+    type: String
+  },
+  avatar: {
+    type: String
+  },
+  xAccessToken: {
+    type: String
+  },
+  xUserId: {
+    type: String
+  },
+  xUsername: {
+    type: String
+  },
   createdAt: {
     type: Date,
     default: Date.now

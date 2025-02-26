@@ -44,6 +44,8 @@ router.get('/x/callback', async (req, res) => {
       throw new Error('No authorization code received from X');
     }
 
+    console.log('Received code from X, exchanging for token...');
+    
     // Exchange code for access token with Basic Auth header
     const basicAuth = Buffer.from(`${xConfig.clientId}:${xConfig.clientSecret}`).toString('base64');
     const tokenResponse = await axios.post('https://api.twitter.com/2/oauth2/token',
@@ -62,25 +64,33 @@ router.get('/x/callback', async (req, res) => {
     );
 
     const { access_token } = tokenResponse.data;
+    console.log('Received access token from X');
 
     // Get user's X profile
+    console.log('Fetching X user profile...');
     const profileResponse = await axios.get('https://api.twitter.com/2/users/me', {
       headers: {
         'Authorization': `Bearer ${access_token}`
       }
     });
 
+    console.log('X profile received:', profileResponse.data.data.username);
+
     // Update user's record using state (user ID) from the OAuth flow
+    console.log('Updating user record with X data, user ID:', state);
     await User.findByIdAndUpdate(state, {
       xAccessToken: access_token,
       xUserId: profileResponse.data.data.id,
       xUsername: profileResponse.data.data.username
     });
 
+    console.log('User record updated successfully');
+    
     // Redirect to dashboard with success message
     res.redirect('http://localhost:3000/dashboard?success=true');
   } catch (error) {
-    console.error('X Callback Error:', error.response?.data || error);
+    console.error('X Callback Error:', error.response?.data || error.message);
+    console.error('Error stack:', error.stack);
     res.redirect('http://localhost:3000/connect?error=x_connection_failed');
   }
 });

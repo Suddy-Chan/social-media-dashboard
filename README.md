@@ -124,5 +124,7 @@ cp .env.example .env
 - `GOOGLE_CLIENT_SECRET`: Google OAuth client secret
 - `X_CLIENT_ID`: X (Twitter) API client ID
 - `X_CLIENT_SECRET`: X (Twitter) API client secret
+- `FACEBOOK_APP_ID`: Facebook App ID
+- `FACEBOOK_APP_SECRET`: Facebook App Secret
 
 **Note:** Never commit your actual `.env` file or expose your API keys publicly.

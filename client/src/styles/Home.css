@@ -196,11 +196,21 @@
   width: 40px;
   background: linear-gradient(to top, #007bff, #00c6ff);
   border-radius: 4px 4px 0 0;
-  transition: height 0.3s ease;
+  transition: height 1s ease;
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  animation: barRise 1.5s ease-out;
+}
+
+@keyframes barRise {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--chart-height);
+  }
 }
 
 .chart-value {
@@ -290,6 +300,9 @@
 .features-section {
   margin: 60px 0;
   text-align: center;
+  padding: 40px 0;
+  background-color: #f9f9f9;
+  border-radius: 12px;
 }
 
 .features-section h2 {
@@ -345,4 +358,170 @@
   .feature-card {
     padding: 20px;
   }
-} 
+}
+
+.supported-platforms {
+  margin: 60px 0;
+  text-align: center;
+  padding: 40px 0;
+  background-color: #f0f7ff;
+  border-radius: 12px;
+}
+
+.supported-platforms h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.platforms-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.platform-item {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.platform-item:hover {
+  transform: translateY(-5px);
+}
+
+.platform-item.coming-soon {
+  opacity: 0.8;
+}
+
+.platform-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+}
+
+.x-icon {
+  background: #000;
+  color: white;
+}
+
+.facebook-icon {
+  background: #1877F2;
+  color: white;
+  font-weight: bold;
+}
+
+.instagram-icon {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+}
+
+.linkedin-icon {
+  background: #0077B5;
+  color: white;
+  font-weight: bold;
+}
+
+.platform-item h3 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.platform-item p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.coming-soon-badge {
+  position: absolute;
+  top: 15px;
+  right: -30px;
+  background: #ff6b6b;
+  color: white;
+  padding: 5px 30px;
+  font-size: 0.7rem;
+  transform: rotate(45deg);
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .platforms-showcase {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .platforms-showcase {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-cta {
+  margin: 30px 0;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #1a73e8;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(26, 115, 232, 0.3);
+}
+
+.cta-button:hover {
+  background-color: #1557b0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(26, 115, 232, 0.4);
+}
+
+.home-footer {
+  margin-top: 60px;
+  padding: 30px 0;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+  text-decoration: underline;
+}

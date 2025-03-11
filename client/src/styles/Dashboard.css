@@ -1,7 +1,12 @@
+/* Import theme variables at the top of the file */
+@import './themes.css';
+
 .dashboard {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .dashboard-nav {
@@ -10,13 +15,14 @@
   align-items: center;
   margin-bottom: 30px;
   padding: 10px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--nav-bg);
 }
 
 .dashboard-nav h1 {
   margin: 0;
   font-size: 24px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .logout-button {
@@ -36,11 +42,12 @@
 }
 
 .metric-card {
-  background-color: white;
+  background-color: var(--bg-secondary);
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   text-align: center;
+  color: var(--text-primary);
 }
 
 .metric-value {
@@ -121,11 +128,12 @@
 }
 
 .post-card {
-  background: #f8f9fa;
+  background-color: var(--card-bg);
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid #eee;
+  border: 1px solid var(--border-color);
   transition: transform 0.2s ease;
+  color: var(--text-primary);
 }
 
 .post-card:hover {
@@ -136,7 +144,7 @@
 .post-content {
   margin-bottom: 15px;
   line-height: 1.5;
-  color: #333;
+  color: var(--text-primary);
   font-size: 0.95em;
 }
 
@@ -157,7 +165,7 @@
 
 .post-date {
   margin-left: auto;
-  color: #888;
+  color: var(--text-tertiary);
 }
 
 .chart-container {
@@ -336,10 +344,11 @@
 }
 
 .tweet-card {
-  background-color: white;
+  background-color: var(--card-bg);
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  color: var(--text-primary);
 }
 
 .tweet-metrics {
@@ -409,19 +418,20 @@
 }
 
 .dashboard-section {
-  background-color: #fff;
+  background-color: var(--card-bg);
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-shadow);
   padding: 20px;
   width: 100%;
   scroll-margin-top: 120px; /* Adds margin for smooth scrolling with fixed header */
+  color: var(--text-primary);
 }
 
 .dashboard-section h2 {
   margin-top: 0;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .x-section {
@@ -450,11 +460,12 @@
 }
 
 .post-card {
-  background-color: #f9f9f9;
+  background-color: var(--card-bg);
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
   border-left: 4px solid #1877F2;
+  color: var(--text-primary);
 }
 
 .post-metrics {
@@ -477,10 +488,11 @@
 }
 
 .metric-card {
-  background-color: #f9f9f9;
+  background-color: var(--bg-secondary);
   border-radius: 8px;
   padding: 15px;
   text-align: center;
+  color: var(--text-primary);
 }
 
 .metric-value {
@@ -504,7 +516,7 @@
   margin: 20px 0;
   position: sticky;
   top: 70px;
-  background-color: #f5f5f5;
+  background-color: var(--bg-secondary);
   padding: 10px;
   border-radius: 8px;
   z-index: 100;
@@ -515,8 +527,8 @@
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
-  background-color: #fff;
-  color: #555;
+  background-color: transparent;
+  color: var(--text-secondary);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -527,8 +539,8 @@
 }
 
 .tab-button.active {
-  background-color: #333;
-  color: white;
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
 }
 
 .tab-button.x-tab.active {

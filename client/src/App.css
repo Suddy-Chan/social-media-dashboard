@@ -1,5 +1,10 @@
+@import './styles/themes.css';
+
 .App {
   text-align: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -36,3 +41,5 @@
     transform: rotate(360deg);
   }
 }
+
+/* Add any other global styles that should use theme variables */

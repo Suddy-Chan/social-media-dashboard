@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import ConnectSocial from './pages/ConnectSocial';
 import AuthCallback from './pages/AuthCallback';
 import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
     </Router>
